@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+
+    <!-- Always include this line of code!!! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    <!-- <link rel="manifest" href="manifest.webmanifest" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{{ asset('landing/css/general.css') }}" />
+    <link rel="stylesheet" href="{{ asset('landing/css/style.css') }}" />
+    <!-- <link rel="stylesheet" href="css/queries.css" /> -->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+
+    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+    <script defer src="{{ asset('landingjs/script.js') }}"></script>
+
+    <title>ChurchSafe</title>
+</head>
+
+<body>
+    <div class="bg-container">
+        <!-- HEADER -->
+        <header class="header">
+            <a href="/" style="text-decoration: none;">
+                <h1>ChurchSafe</h1>
+            </a>
+
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li>
+                        <a class="main-nav-link" href="#about">About</a>
+                    </li>
+                    {{-- <li>
+            <a class="main-nav-link" href="#testimonials">Testimonials</a>
+          </li> --}}
+                    <li><a class="main-nav-link" href="#pricing">Pricing</a></li>
+                    <!-- <li><a class="main-nav-link" href="./blog/index.html">Blog</a></li> -->
+                    @if (auth()->user())
+                        <li>
+                            <a class="main-nav-link nav-cta" href="{{ route('dashboard') }}">Dashboard</a>
+                        </li>
+                    @else
+                        <li>
+                            <a class="main-nav-link nav-cta" href="{{ route('register') }}">Try for free</a>
+                        </li>
+                        <li>
+                            <a class="main-nav-link btn--form" href="{{ route('login') }}">Login</a>
+                        </li>
+                    @endif
+                </ul>
+            </nav>
+
+            <button class="btn-mobile-nav">
+                <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+                <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+            </button>
+        </header>
+
+        <!-- Hero section -->
+        <section class="section-hero stickNav">
+            <div class="hero">
+                <div class="hero-text-box">
+                    <h1 class="heading-primary">
+                        Software that manages your church
+                    </h1>
+                    <p class="hero-description">
+                        Keep your church members data safely.
+                    </p>
+                    <a href="{{ route('register') }}" class="btn btn--full margin-right-sm">Start Your Free Trial
+                        Today!</a>
+                </div>
+
+                <div class="hero-img-box">
+                    <img src="{{ asset('landing/img/hero-img1.jpg') }}" alt="hero image" />
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <main>
+        <!-- section about us -->
+        <section class="about-us" id="about">
+            <div class="about-us-container container">
+                <div class="about-us-text">
+                    <h1>About</h1>
+                    <p>
+                        ChurchSafe helps churches securely store and manage their data with ease. From tracking
+                        members, tithes, and offerings to organizing cell groups, our all-in-one solution simplifies
+                        management tasks
+                        while keeping sensitive information safe. </p>
+                    <p>With a user-friendly interface and flexible features, our app helps churches save time and focus
+                        on
+                        ministry.
+                    </p>
+                    <!-- <button class="btn-read-more btn">Read more</button> -->
+                </div>
+                <div class="about-us-icon">
+                    <!-- Icon or Image Here -->
+                    <div class="icon-circle">
+                        <ion-icon class="icon-book" name="book-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- section testimonials -->
+        <section class="section-testimonials" id="testimonials">
+            <div class="testimonials-container">
+                <span class="subheading">Testimonials</span>
+                <h2 class="heading-secondary">
+                    Once you try it, you can't go back
+                </h2>
+
+                <div class="testimonials">
+                    <figure class="testimonial">
+                        <img class="testimonial-img" alt="Photo of customer Dave Bryson"
+                            src="{{ asset('landing/img/customers/dave.jpg') }}" />
+                        <blockquote class="testimonial-text">
+                            Inexpensive, healthy and great-tasting meals, without even')}}
+                            having to order manually! It feels truly magical.
+                        </blockquote>
+                        <p class="testimonial-name">&mdash; Dave Bryson</p>
+                    </figure>
+
+                    <figure class="testimonial">
+                        <img class="testimonial-img" alt="Photo of customer Ben Hadley"
+                            src="{{ asset('landing/img/customers/ben.jpg') }}" />
+                        <blockquote class="testimonial-text">
+                            The AI algorithm is crazy good, it chooses the right meals for
+                            me every time. It's amazing not to worry about food anymore!
+                        </blockquote>
+                        <p class="testimonial-name">&mdash; Ben Hadley</p>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="gallery">
+                <figure class="gallery-item">
+                    <img src="{{ asset('landing/img/gallery/gallery-1.jpg') }}" alt="church" />
+                </figure>
+
+                <figure class="gallery-item">
+                    <img src="{{ asset('landing/img/gallery/gallery-4.jpg') }}" alt="church" />
+                </figure>
+
+                <figure class="gallery-item">
+                    <img src="{{ asset('landing/img/gallery/gallery-6.jpg') }}" alt="church" />
+                </figure>
+
+                <figure class="gallery-item">
+                    <img src="{{ asset('landing/img/gallery/gallery-8.jpg') }}" alt="church" />
+                </figure>
+                <figure class="gallery-item">
+                    <img src="{{ asset('landing/img/gallery/gallery-9.jpg') }}" alt="church" />
+                </figure>
+
+                <figure class="gallery-item">
+                    <img src="{{ asset('landing/img/gallery/gallery-11.jpg') }}" alt="church" />
+                </figure>
+
+            </div>
+        </section>
+        </div>
+
+        <!-- PRICING SECTION -->
+        <section class="section-pricing" id="pricing">
+            <div class="container">
+                <span class="subheading">Pricing</span>
+                <h2 class="heading-secondary">
+                    Get a Amazing Church Management System
+                </h2>
+            </div>
+
+            <div class="container grid grid--2-cols margin-bottom-md">
+                <div class="pricing-plan pricing-plan--starter">
+                    <header class="plan-header">
+                        <p class="plan-name">Free Trial</p>
+                        <p class="plan-price"><span>Rs.</span>0.00</p>
+                        <p class="plan-text">Get full access for free.</p>
+                    </header>
+                    <ul class="list">
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>For 30 days</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Unlimited data</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Member details</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Reports in excel</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Easy search members</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Cell groups management</span>
+                        </li>
+                    </ul>
+                    <div class="plan-sing-up">
+                        <a href="{{ route('register') }}" class="btn btn--full">Start Free Trial</a>
+                    </div>
+                </div>
+
+                <div class="pricing-plan pricing-plan--complete">
+                    <header class="plan-header">
+                        <p class="plan-name">Subscription</p>
+                        <p class="plan-price"><span>Rs.</span>7000</p>
+                        <p class="plan-text">per year. That's just Rs. 584 per Month!</p>
+                    </header>
+                    <ul class="list">
+
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>For 1 year</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Unlimited data</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Member details</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Reports in excel</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Easy search members</span>
+                        </li>
+                        <li class="list-item">
+                            <ion-icon class="list-icon" name="checkmark-outline"></ion-icon>
+                            <span>Cell groups management</span>
+                        </li>
+                    </ul>
+                    <div class="plan-sing-up">
+                        <a href="/register?pay" class="btn btn--full">Buy</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="container">
+            <span class="subheading">Contact</span>
+            <h2 class="heading-secondary">
+                Feel free to reach us for any inquiry.
+            </h2>
+        </div>
+        <div class="container contact-us-container">
+            <div class="contact-us">
+                <div class="contact-info">
+                    <div class="info">
+                        <img src="{{asset('landing/img/contact-us-img.avif')}}" alt="Contact Us Illustration" class="illustration" />
+                        <h2>Contact Us</h2>
+                        <p>
+                            Asperiores veniam vel doloribus assumenda soluta blanditiis
+                            dolores qui voluptates, consequatur vitae.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong><ion-icon name="call-outline"></ion-icon></strong>
+                                +2335523456789
+                            </li>
+                            <li>
+                                <strong><ion-icon name="mail-outline"></ion-icon></strong>
+                                support@egattor.com
+                            </li>
+                            <li>
+                                <strong><ion-icon name="location-outline"></ion-icon></strong>
+                                Accra, Ghana
+                            </li>
+                        </ul>
+                        <div class="social-icons">
+                            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+                            <a href="#"><ion-icon name="logo-twitter"></ion-icon></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="empty"></div>
+                <div class="contact-form">
+                    <form action="#">
+                        <div class="input-group">
+                            <input type="text" placeholder="First Name" />
+                            <input type="text" placeholder="Last Name" />
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Email" />
+                            <input type="number" placeholder="Phone Number" />
+                        </div>
+                        <textarea placeholder="Write your Message"></textarea>
+                        <button type="submit" class="btn btn--form">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="">
+            <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                            
+
+                <p class="copyright">
+                    Powered by <a
+                        href="https://birenjungtech.com/">BirenJung Tech</a>.
+                
+                </p>
+                <p class="copyright">
+                    Copyright &copy; <span class="year"><?php echo date('Y');  ?></span>. ChurchSafe.                        
+                    All rights reserved.
+                </p>
+            </div>
+
+          
+
+           
+
+
+        </div>
+    </footer>
+</body>
+
+</html>
